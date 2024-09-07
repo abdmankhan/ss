@@ -10,18 +10,16 @@ export default function SudokuSolver() {
   const [showSteps, setShowSteps] = useState(false);
 
   // Load JSON file for different difficulty levels
-  async function loadSudokuGrids(difficulty) {
+  function loadSudokuGrids(difficulty) {
     try {
-      const response = await fetch(`./sudokuGrids.json`);
-
-      const data = await response.json();
-      const grids = data[difficulty];
+      const grids = sudokuGrids[difficulty];
       const randomGrid = grids[Math.floor(Math.random() * grids.length)];
       setGrid(randomGrid);
     } catch (error) {
       console.error("Error loading Sudoku grids:", error);
     }
   }
+  
 
   // Handle input change in each grid cell
   function handleChange(row, col, value) {
