@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import sudokuGrids from './sudokuGrids.json';
 
 export default function SudokuSolver() {
   const [grid, setGrid] = useState(
@@ -11,7 +12,7 @@ export default function SudokuSolver() {
   // Load JSON file for different difficulty levels
   async function loadSudokuGrids(difficulty) {
     try {
-      const response = await fetch(`${process.env.PUBLIC_URL}/sudokuGrids.json`);
+      const response = await fetch(`./sudokuGrids.json`);
 
       const data = await response.json();
       const grids = data[difficulty];
