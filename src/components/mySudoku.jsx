@@ -11,7 +11,7 @@ export default function SudokuSolver() {
   // Load JSON file for different difficulty levels
   async function loadSudokuGrids(difficulty) {
     try {
-      const response = await fetch('${process.env.PUBLIC_URL}/sudokuGrids.json');
+      const response = await fetch('../sudokuGrids.json');
       const data = await response.json();
       const grids = data[difficulty];
       const randomGrid = grids[Math.floor(Math.random() * grids.length)];
