@@ -23,9 +23,16 @@ export default function SudokuSolver() {
 
   // Handle input change in each grid cell
   function handleChange(row, col, value) {
-    const updatedGrid = [...grid];
-    updatedGrid[row][col] = value;
-    setGrid(updatedGrid);
+    function handleChange(row, col, value) {
+      if (value >= 1 && value <= 9) {
+        const updatedGrid = [...grid];
+        updatedGrid[row][col] = value;
+        setGrid(updatedGrid);
+      } else {
+        alert("Please enter a value between 1 and 9");
+      }
+    }
+    
   }
 
   // Sudoku solving with or without steps visualization
